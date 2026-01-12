@@ -15,8 +15,7 @@ This project forecasts U.S. Consumer Price Index (CPI) values using classical st
 A 24-month holdout period is used for evaluation.
 
 ## Results
-Prophet achieved the lowest MAE and RMSE on the holdout set. It outperforming both ARIMA and the univariate LSTM. This aligns with the trend-dominated structure of CPI data.
+The Prophet model achieved the lowest MAE and RMSE on the holdout set; Outperforming both ARIMA and the univariate LSTM. This aligns with the trend-dominated structure of CPI data.
 
 ## Deployment Readiness
-The selected Prophet model is serialized and packaged into a `model.tar.gz`.  
-A custom inference handler and optional deployment script are also provided. Deployment is intentionally excluded from the notebook to avoid unnecessary cloud costs.
+The selected Prophet model is serialized and packaged into a `model.tar.gz`.  I also included a custom inference handler and optional deployment script and I intentionally excluded deployment from the notebook to avoid unnecessary cloud costs.
