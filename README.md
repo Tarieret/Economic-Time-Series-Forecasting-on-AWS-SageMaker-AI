@@ -1,6 +1,6 @@
 # Economic-Time-Series-Forecasting-on-AWS-SageMaker AI with ARIMA, Prophet, and LSTM
 
-![Prophet Forecast vs Actual CPI](images/Prophet_CPI.png)
+![Prophet Forecast vs Actual CPI](images/LSTM_CPI.png)
 
 For this project, I forecasts U.S. Consumer Price Index (CPI) values using classical statistical models, trend-based forecasting, and deep learning. The goal was  to compare model performance under a proper time-series validation framework and deploy  using AWS SageMaker AI. 
 
@@ -17,7 +17,7 @@ For this project, I forecasts U.S. Consumer Price Index (CPI) values using class
 A 24-month holdout period is used for evaluation.
 
 ## Results
-The Prophet model achieved the lowest MAE and RMSE on the holdout set, Outperforming both ARIMA and the univariate LSTM:
+The LSTM model achieved the lowest MAE and RMSE on the holdout set, Outperforming both ARIMA and Prophet:
 
 **Performance on Holdout Set (Dec 2023 – Nov 2025):**
 
