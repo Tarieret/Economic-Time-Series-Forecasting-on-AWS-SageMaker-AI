@@ -52,5 +52,5 @@ Achieving a champion RMSE of 0.619 required navigating several key trade-offs du
 
 - Optimization Stability: A standard learning rate (0.001) caused erratic validation loss. I stabilized convergence by implementing a Learning Rate Scheduler and reducing the step size to handle the non-stationary nature of inflation data.
 
-## *Deployment
+## Deployment
 The selected model is serialized and packaged into a `model.tar.gz`.  I also included a custom inference handler and optional deployment script and I intentionally excluded deployment from the notebook to avoid unnecessary cloud costs.
