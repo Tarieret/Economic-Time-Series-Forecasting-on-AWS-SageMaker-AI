@@ -5,14 +5,9 @@
 # CPI Inflation Forecasting: ARIMA vs. Prophet vs. LSTM
 
 ## 📊 Model Comparison Results
-![Model Comparison](model_comparison.png)
+![Model Comparison](RMSE_Comparison.png)
 
-> **Summary:** Comparing three distinct approaches to time-series forecasting. While ARIMA and Prophet captured general trends, they struggled with the non-linear volatility of recent years.
-
----
-
-## 🟢 Champion Model: LSTM (Long Short-Term Memory)
-![LSTM Performance](lstm_results.png)
+![LSTM Performance](LSTM_CPI.png)
 
 ### Performance Metric: **RMSE 0.619**
 The LSTM model outperformed statistical baselines by a significant margin. By utilizing a 12-month lookback window and a specialized neural architecture, it successfully mapped complex inflationary patterns that traditional models missed.
