@@ -20,7 +20,7 @@ For this project, I forecasts U.S. Consumer Price Index (CPI) values using class
 A 24-month holdout period is used for evaluation.
 
 ## Results
-The LSTM model achieved the lowest MAE and RMSE on the holdout set, Outperforming both ARIMA and Prophet:
+The LSTM model achieved the lowest MAE and RMSE on the holdout set by far, Outperforming both ARIMA and Prophet:
 
 **Performance on Holdout Set (Dec 2023 – Nov 2025):**
 
