@@ -30,7 +30,7 @@ The LSTM model achieved the lowest MAE and RMSE on the holdout set, Outperformin
 | Prophet           | 7.09  | 7.15  |
 | ARIMA (1,1,1)     | 8.04  | 9.29  |
 
-## 🧠 Technical Challenges & Hyperparameter Tuning
+## Technical Challenges & Hyperparameter Tuning
 
 Achieving a champion RMSE of 0.619 required navigating several key trade-offs during the model selection process:
 
