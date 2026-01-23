@@ -6,10 +6,18 @@
 ## 🏆 Champion Model: LSTM Performance
 ![LSTM Performance](Images/LSTM_CPI.png)
 
-### Performance Metric: **RMSE 0.619**
-The LSTM model outperformed statistical baselines by a significant margin. By utilizing a 12-month lookback window and a specialized neural architecture, it successfully mapped complex inflationary patterns that traditional models missed.
+## **📈 Project Overview**
+This project forecasts U.S. Consumer Price Index (CPI) values using a multi-model approach, ranging from classical statistical methods to advanced deep learning. The primary objective was to evaluate model accuracy under a rigorous time-series validation framework and demonstrate production-level deployment.
 
-For this project, I forecasts U.S. Consumer Price Index (CPI) values using classical statistical models, trend-based forecasting, and deep learning. The goal was  to compare model performance under a proper time-series validation framework and deploy  using AWS SageMaker AI. 
+## Key Highlights
+
+- Model Comparison: Evaluated performance across classical statistical models, trend-based forecasting, and Long Short-Term Memory (LSTM) networks.
+
+- Performance: The LSTM model significantly outperformed statistical baselines. By utilizing a 12-month lookback window and a specialized neural architecture, it captured complex inflationary patterns that traditional models failed to detect.
+
+- Deployment: Fully integrated and deployed using AWS SageMaker AI for scalable inference.
+
+
 
 ## Data
 - Source: Federal Reserve Economic Data (FRED)
