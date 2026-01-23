@@ -1,6 +1,10 @@
 # Economic-Time-Series-Forecasting-on-AWS-SageMaker AI with ARIMA, Prophet, and LSTM
 
-![Model Comparison](RMSE_Comparison.png) ![LSTM Performance](LSTM_CPI.png)
+## 📊 Model Comparison Results
+![Model Comparison](Images/RMSE_Comparison.png)
+
+## 🏆 Champion Model: LSTM Performance
+![LSTM Performance](Images/LSTM_CPI.png)
 
 ### Performance Metric: **RMSE 0.619**
 The LSTM model outperformed statistical baselines by a significant margin. By utilizing a 12-month lookback window and a specialized neural architecture, it successfully mapped complex inflationary patterns that traditional models missed.
