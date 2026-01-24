@@ -1,21 +1,25 @@
-from sagemaker.tensorflow import TensorFlowModel
 import sagemaker
+from sagemaker.xgboost.model import XGBoostModel
+from sagemaker import get_execution_role
 
-role = sagemaker.get_execution_role()
 sagemaker_session = sagemaker.Session()
+role = get_execution_role()
 
-# Path to the tarball created
-model_data = f"s3://{sagemaker_session.default_bucket()}/models/lstm-model.tar.gz"
+# Upload the tarball you created earlier to S3
+bucket = sagemaker_session.default_bucket()
+prefix = "cpi-forecaster-xgboost"
+s3_path = sagemaker_session.upload_data("xgboost-model.tar.gz", bucket=bucket, key_prefix=prefix)
 
-lstm_model = TensorFlowModel(
-    model_data=model_data,
+# Create the SageMaker Model
+xgb_model = XGBoostModel(
+    model_data=s3_path,
     role=role,
-    framework_version="2.18", 
-    entry_point="inference.py"
+    entry_point="inference.py",
+    framework_version="1.7-1", # Ensure this matches your local xgb version
 )
 
-# Deploy to a small instance
-predictor = lstm_model.deploy(
+# Deploy to an Endpoint
+predictor = xgb_model.deploy(
     initial_instance_count=1,
     instance_type="ml.t2.medium"
 )
