@@ -3,17 +3,17 @@
 ## 📊 Model Comparison Results
 ![Model Comparison](Images/RMSE_Comparison.png)
 
-## 🏆 Champion Model: LSTM Performance
-![LSTM Performance](Images/LSTM_CPI.png)
+## 🏆 Champion Model: XGBoost Performance
+![LSTM Performance](Images/XGBoost_CPI.png)
 
 ## **📈 Project Overview**
-This project forecasts U.S. Consumer Price Index (CPI) values using a multi-model approach, ranging from classical statistical methods to advanced deep learning. The primary objective was to evaluate model accuracy under a rigorous time-series validation framework and demonstrate production-level deployment.
+This project forecasts U.S. Consumer Price Index (CPI) values using a multi-model approach, ranging from classical statistical methods to high-performance gradient boosting. The primary objective was to evaluate model accuracy under a rigorous time-series validation framework and demonstrate production-level deployment.
 
 ## Key Highlights
 
-- Model Comparison: Evaluated performance across classical statistical models, trend-based forecasting, and Long Short-Term Memory (LSTM) networks.
+- Model Benchmarking: Evaluated performance across classical statistical models, trend-based forecasting, and gradient boosting.
 
-- Performance: The LSTM model significantly outperformed statistical baselines. By utilizing a 12-month lookback window and a specialized neural architecture, it captured complex inflationary patterns that traditional models failed to detect.
+- Performance: The XGBoost model significantly outperformed statistical baselines. By utilizing a 12-month lookback window and stationarity transformations, it captured complex inflationary patterns that traditional models failed to detect.
 
 - Deployment: Fully integrated and deployed using AWS SageMaker AI for scalable inference.
 
@@ -27,30 +27,31 @@ This project forecasts U.S. Consumer Price Index (CPI) values using a multi-mode
 ## Methods
 - ARIMA (baseline statistical model)
 - Prophet (trend + seasonality model)
-- LSTM (deep learning model)
+- XGBoost (feature-engineered regressor with stationarity transformation)
 
 A 24-month holdout period is used for evaluation.
 
 ## Results
-The LSTM model achieved the lowest MAE and RMSE on the holdout set by far, Outperforming both ARIMA and Prophet:
+The XGBoost model achieved the lowest MAE and RMSE on the holdout set by far, Outperforming both ARIMA and Prophet:
 
 **Performance on Holdout Set (Dec 2023 – Nov 2025):**
 
 | Model             | MAE   | RMSE  |
 |------------------|-------|-------|
-| LSTM (lookback=24) | 0.53  | 0.62  |
+| XGBoost(Winner)   | 1.83 | 2.0 |
 | Prophet           | 7.09  | 7.15  |
 | ARIMA (1,1,1)     | 8.04  | 9.29  |
 
-## Technical Challenges & Hyperparameter Tuning
 
-Achieving a champion RMSE of 0.619 required navigating several key trade-offs during the model selection process:
+## Methodology & Technical Implementation
+- The Pivot from LSTM: Testing showed that deep learning struggled with the small monthly sample size and non-stationary trend of CPI data, leading to a shift toward a more robust tree-based approach.
 
-- The Lookback Window: Initial 3-month windows missed broader economic cycles, while 24-month windows introduced "gradient noise." A 12-month lookback proved optimal, balancing annual seasonality with responsiveness to recent shifts.
+- Data Transformation: Applied First-Order Differencing to remove trend bias. The model was trained to predict monthly changes (Delta) rather than absolute values to ensure stationarity.
 
-- Model Complexity: Deep architectures (3+ layers) led to vanishing gradients and overfitting on the sparse monthly CPI data. I pivoted to a single-layer LSTM with 50 units, prioritizing a lean design that generalized better on holdout data.
+- Feature Engineering: Implemented a 12-month sliding window of lag features. This captures seasonal momentum and annual cycles that traditional statistical models often overlook.
 
-- Optimization Stability: A standard learning rate (0.001) caused erratic validation loss. I stabilized convergence by implementing a Learning Rate Scheduler and reducing the step size to handle the non-stationary nature of inflation data.
+- Technical Optimization: Utilized XGBoost to handle non-linear relationships within the features, resulting in a significantly lower error rate compared to ARIMA and Prophet.
+
 
 ## Deployment
 The selected model is serialized and packaged into a `model.tar.gz`.  I also included a custom inference handler and optional deployment script and I intentionally excluded deployment from the notebook to avoid unnecessary cloud costs.
