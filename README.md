@@ -1,12 +1,12 @@
 # Economic-Time-Series-Forecasting-on-AWS-SageMaker AI with ARIMA, Prophet, and LSTM
 
-## 📊 Model Comparison Results
+## Model Comparison Results
 ![Model Comparison](Images/RMSE_Comparison.png)
 
 ## 🏆 Champion Model: XGBoost Performance
 ![LSTM Performance](Images/XGBoost_CPI.png)
 
-## **📈 Project Overview**
+## **Project Overview**
 This project forecasts U.S. Consumer Price Index (CPI) values using a multi-model approach, ranging from classical statistical methods to high-performance gradient boosting. The primary objective was to evaluate model accuracy under a rigorous time-series validation framework and demonstrate production-level deployment.
 
 ## Key Highlights
